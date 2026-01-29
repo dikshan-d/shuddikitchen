@@ -46,14 +46,15 @@ img {
   background-color: #ffffff;
   color: green;
   display: flex;
+  flex-wrap: wrap;          /* allow nav to wrap on small screens */
   align-items: center;
   justify-content: space-between;
-  padding: 5px 20px;       /* reduced top/bottom padding */
+  padding: 0px 21px;       /* reduced top/bottom padding */
   box-sizing: border-box;
   position: sticky;         /* header stays at top */
   top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #ccc; /* optional subtle border */
+  z-index: 10003;
+  border-bottom: 0px solid #ccc; /* optional subtle border */
 }
 
 .logo {
@@ -65,13 +66,20 @@ img {
 }
 
 .logo img {
-  width: 120px;
+  width: 95px;
   height: auto;
   object-fit: contain;
 }
 
+nav {
+  display: flex;
+  flex-wrap: wrap;          /* wrap nav items */
+  align-items: center;
+  gap: 10px;
+}
+
 nav a {
-  margin-left: 15px;
+  margin-left: 0;
   padding: 8px 12px;
   font-weight: 1000;
   text-decoration: none;
@@ -106,6 +114,7 @@ nav a:hover {
   width: 100%;               /* full width */
   max-width: 100%;
   height: 50vh;              /* hero height */
+  min-height: 200px;         /* prevent too small on phones */
   object-fit: cover;         /* crop/fill */
   margin: 0;                 /* remove all margin */
   display: block;
@@ -137,8 +146,9 @@ nav a:hover {
 
 .menu-card img {
   width: 100%;
-  height: 150px;
-  object-fit: cover;
+  height: auto;               /* maintain aspect ratio */
+  max-height: 150px;          /* card height limit */
+  object-fit: contain;         /* prevent cropping */
   border-radius: 10px;
 }
 
@@ -206,7 +216,7 @@ nav a:hover {
   }
 
   .menu-card img {
-    height: 140px;
+    max-height: 140px;
   }
 }
 
@@ -217,10 +227,15 @@ nav a:hover {
     height: auto;
   }
 
+  nav {
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+  }
+
   nav a {
-    margin-left: 5px;
-    font-size: 14px;
-    padding: 6px 8px;
+    font-size: 13px;
+    padding: 5px 6px;
   }
 
   .home-logo {
@@ -241,7 +256,7 @@ nav a:hover {
   }
 
   .menu-card img {
-    height: 120px;
+    max-height: 120px;
   }
 
   .menu-desc {
@@ -281,6 +296,6 @@ nav a:hover {
   }
 
   .menu-card img {
-    height: 100px;
+    max-height: 100px;
   }
 }
