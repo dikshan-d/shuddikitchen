@@ -14,7 +14,7 @@ body {
   height: 100%;
   overflow-x: hidden;              /* remove horizontal scroll */
   overscroll-behavior: none;       /* stop mobile over-scroll */
-  touch-action: pan-y;             /* vertical scroll only */
+  touch-action: auto;              /* allow pinch-to-zoom */
   background-color: #cd9138;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -125,8 +125,8 @@ nav a:hover {
 .home-logo {
   width: 100vw;             /* full width */
   height: auto;             /* maintain aspect ratio */
-  min-height: 220px;        /* minimum height for desktop */
-  object-fit: contain;      /* show full image without cropping */
+  min-height: 220px;
+  object-fit: contain;      /* full image visible without cropping */
   display: block;
   margin: 0;                /* touches header */
   padding: 0;
