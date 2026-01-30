@@ -7,14 +7,15 @@
    Global Reset & Mobile Safety
 =============================== */
 html,
-body,
-#root {
-  width: 100%;
-  min-height: 100%;
+body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  background-color: #cd9138; /* same as app background */
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;              /* remove horizontal scroll */
+  overscroll-behavior: none;       /* stop mobile over-scroll */
+  touch-action: pan-y;             /* vertical scroll only */
+  background-color: #cd9138;
 }
 
 #root {
@@ -38,12 +39,10 @@ img {
    App Layout (Sticky Footer)
 =============================== */
 .app-container {
-  min-height: 100svh;     /* modern mobile-safe viewport */
-  min-height: 100vh;      /* fallback */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #cd9138;
 }
 
 .page-content {
@@ -114,13 +113,70 @@ nav a:hover {
   width: 100%;
   text-align: center;
   overflow-x: hidden;
+  position: relative;
 }
 
 .home-logo {
-  width: 100vw;                    /* removes side gap */
-  height: 50vh;
-  min-height: 220px;
-  object-fit: cover;
+  width: 100%;               /* full width of container */
+  height: auto;              /* maintain original aspect ratio */
+  min-height: 220px;         /* minimum height on desktop */
+  object-fit: contain;       /* full image visible without cropping */
+  display: block;            /* remove inline gaps */
+  margin: 0 auto;            /* center horizontally */
+}
+
+/* Responsive adjustments for Home image */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+  .home-logo {
+    min-height: 200px;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+}
+
+/* Standard phones */
+@media (max-width: 768px) {
+  .logo img {
+    width: 75px;
+  }
+
+  nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .home-logo {
+    min-height: 150px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .home-logo {
+    min-height: 120px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
 }
 
 /* ===============================
@@ -194,60 +250,4 @@ nav a:hover {
   color: #ffffff;
   margin: 0 6px;
   text-decoration: none;
-}
-
-/* ===============================
-   Responsive
-=============================== */
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .home-logo {
-    height: 45vh;
-  }
-
-  nav a {
-    font-size: 15px;
-  }
-}
-
-/* Phones */
-@media (max-width: 768px) {
-  .logo img {
-    width: 75px;
-  }
-
-  nav {
-    justify-content: center;
-    width: 100%;
-  }
-
-  nav a {
-    font-size: 13px;
-    padding: 5px 8px;
-  }
-
-  .home-logo {
-    height: 35vh;
-  }
-
-  .menu-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .home-logo {
-    height: 28vh;
-  }
-
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
-
-  nav a {
-    font-size: 12px;
-  }
 }
