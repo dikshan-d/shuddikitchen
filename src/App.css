@@ -16,6 +16,9 @@ body {
   overscroll-behavior: none;       /* stop mobile over-scroll */
   touch-action: pan-y;             /* vertical scroll only */
   background-color: #cd9138;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #root {
@@ -46,7 +49,7 @@ img {
 }
 
 .page-content {
-  flex: 1;                         /* pushes footer down */
+  flex: 1; /* pushes footer down */
   width: 100%;
 }
 
@@ -54,14 +57,14 @@ img {
    Header / Navbar
 =============================== */
 .header {
-  width: 100vw;                    /* full viewport width */
+  width: 100vw;
   background-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 6px 16px;
-  position: sticky;
+  position: sticky;  /* keeps header on top */
   top: 0;
   z-index: 1000;
 }
@@ -110,72 +113,30 @@ nav a:hover {
    Home / Hero Section
 =============================== */
 .home {
-  width: 100%;
+  width: 100vw;
+  height: auto;
   text-align: center;
   overflow-x: hidden;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .home-logo {
-  width: 100%;               /* full width of container */
-  height: auto;              /* maintain original aspect ratio */
-  min-height: 220px;         /* minimum height on desktop */
-  object-fit: contain;       /* full image visible without cropping */
-  display: block;            /* remove inline gaps */
-  margin: 0 auto;            /* center horizontally */
+  width: 100vw;             /* full width */
+  height: auto;             /* maintain aspect ratio */
+  min-height: 220px;        /* minimum height for desktop */
+  object-fit: contain;      /* show full image without cropping */
+  display: block;
+  margin: 0;                /* touches header */
+  padding: 0;
 }
 
-/* Responsive adjustments for Home image */
-
-/* Large tablets / small desktops */
-@media (max-width: 1024px) {
+/* Landscape orientation */
+@media (orientation: landscape) {
   .home-logo {
-    min-height: 200px;
-  }
-
-  nav a {
-    font-size: 15px;
-  }
-}
-
-/* Standard phones */
-@media (max-width: 768px) {
-  .logo img {
-    width: 75px;
-  }
-
-  nav {
-    justify-content: center;
-    width: 100%;
-  }
-
-  nav a {
-    font-size: 13px;
-    padding: 5px 8px;
-  }
-
-  .home-logo {
-    min-height: 150px;
-  }
-
-  .menu-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 12px;
-  }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-  .home-logo {
-    min-height: 120px;
-  }
-
-  .menu-grid {
-    grid-template-columns: 1fr;
-  }
-
-  nav a {
-    font-size: 12px;
+    width: 100vw;           /* full viewport width */
+    height: auto;           /* maintain aspect ratio */
   }
 }
 
@@ -250,4 +211,60 @@ nav a:hover {
   color: #ffffff;
   margin: 0 6px;
   text-decoration: none;
+}
+
+/* ===============================
+   Responsive
+=============================== */
+
+/* Large tablets / small desktops */
+@media (max-width: 1024px) {
+  .home-logo {
+    min-height: 200px;
+  }
+
+  nav a {
+    font-size: 15px;
+  }
+}
+
+/* Standard phones */
+@media (max-width: 768px) {
+  .logo img {
+    width: 75px;
+  }
+
+  nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .home-logo {
+    min-height: 150px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+}
+
+/* Small phones / very narrow screens */
+@media (max-width: 480px) {
+  .home-logo {
+    min-height: 120px;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
 }
