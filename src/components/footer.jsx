@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        Visit SuddhiGram:{" "}
+        Visit SuddhiGramNepal:{" "}
         <a href="https://shuddhigramnepal.com/" target="_blank" rel="noreferrer">
           Click here
         </a>
@@ -17,6 +17,12 @@ export default function Footer() {
           Example 2
         </a>
       </p>
+      <div className="copyright">
+        <p>Copyright @ShuddiGramNepal</p>
+      </div>
+      
+      
     </footer>
+    
   );
 }
