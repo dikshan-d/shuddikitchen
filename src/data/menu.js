@@ -1,7 +1,7 @@
 
 const menu = [
    {
-    name: "Pure Full Set",
+    name: "DIP Full Set",
     description: "Complete traditional healthy meal set",
     price: "Rs 700",
     category: "Main Course"
