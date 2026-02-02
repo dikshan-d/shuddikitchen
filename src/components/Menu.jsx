@@ -1,12 +1,15 @@
 import menu from "../data/menu";
 
 export default function Menu() {
-  // Group items by category
+  // Group menu items by category
   const groupedMenu = menu.reduce((acc, item) => {
-    if (!acc[item.category]) {
-      acc[item.category] = [];
+    const category = item.category || "Others";
+
+    if (!acc[category]) {
+      acc[category] = [];
     }
-    acc[item.category].push(item);
+
+    acc[category].push(item);
     return acc;
   }, {});
 
@@ -21,10 +24,20 @@ export default function Menu() {
           <div className="menu-grid">
             {items.map((item, index) => (
               <div className="menu-card" key={index}>
-                <img src={item.image} alt={item.name} />
+                {/* Image kept in JSX but hidden by CSS */}
+                {item.image && (
+                  <img src={item.image} alt={item.name} />
+                )}
+
                 <h4>{item.name}</h4>
-                <p className="menu-desc">{item.description}</p>
-                <div className="menu-price">{item.price}</div>
+
+                <p className="menu-desc">
+                  {item.description}
+                </p>
+
+                <div className="menu-price">
+                  {item.price}
+                </div>
               </div>
             ))}
           </div>

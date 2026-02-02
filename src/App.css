@@ -183,12 +183,6 @@ nav a:hover {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
-.menu-card img {
-  width: 100%;
-  max-height: 110px;
-  object-fit: contain;
-  border-radius: 6px;
-}
 
 .menu-desc {
   font-size: 13px;
@@ -221,6 +215,7 @@ nav a:hover {
   margin: 0 auto;
   padding: 40px 16px;
   color: rgb(29, 135, 24);
+  font-size: large;
 }
 
 .map {
@@ -228,6 +223,122 @@ nav a:hover {
   height: 300px;
   border: none;
 }
+/* ===============================
+   Flavors Section (HOME PAGE)
+=============================== */
+.flavors {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 48px 16px;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  background-color: #f7cc94; /* premium light background */
+}
+
+/* LEFT TEXT */
+.flavors-left {
+  flex: 1;
+  color: rgb(29, 135, 24);
+}
+
+.flavors-left h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  margin: 0 0 14px 0;
+}
+
+.flavors-left p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+/* RIGHT CARDS */
+.flavors-right {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+/* CARD */
+.flavor-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flavor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.18);
+}
+
+.flavor-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.flavor-card span {
+  display: block;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #22532c;
+  text-align: center;
+}
+
+/* ===============================
+   Flavors – Responsive
+=============================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .flavors {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .flavors-left p {
+    margin: 0 auto;
+  }
+
+  .flavors-right {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+  .flavors {
+    padding: 36px 12px;
+  }
+
+  .flavors-right {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .flavor-card img {
+    height: 140px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .flavors-right {
+    grid-template-columns: 1fr;
+  }
+
+  .flavor-card img {
+    height: 160px;
+  }
+}
+
 
 /* ===============================
    Footer
@@ -246,6 +357,23 @@ nav a:hover {
   color: #ffa41c;
   margin: 0 6px;
   text-decoration: none;
+}
+.footer-social {
+  margin: 8px 0;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.footer-social a {
+  color: #ffa41c;
+  font-size: 22px;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.footer-social a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
 }
 
 .copyright {
@@ -294,9 +422,7 @@ nav a:hover {
     padding: 6px;
   }
 
-  .menu-card img {
-    max-height: 90px;
-  }
+
 
   .menu-desc {
     font-size: 11px;

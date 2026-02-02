@@ -1,28 +1,46 @@
+import { FaInstagram, FaFacebook } from "react-icons/fa";
+
 export default function Footer() {
   return (
     <footer className="footer">
       <p>
-        Visit SuddhiGramNepal:{" "}
-        <a href="https://shuddhigramnepal.com/" target="_blank" rel="noreferrer">
+        Visit ShuddhiGramNepal:{" "}
+        <a
+          href="https://shuddhigramnepal.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
           Click here
         </a>
       </p>
-      <p>
-        Other Links:{" "}
-        <a href="https://example.com" target="_blank" rel="noreferrer">
-          Example 1
-        </a>{" "}
-        |{" "}
-        <a href="https://example2.com" target="_blank" rel="noreferrer">
-          Example 2
+      
+
+      {/* Social Icons */}
+      <div className="footer-social">
+        <a
+          href="https://www.instagram.com/shuddhigramnepal"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram"
+        >
+          <FaInstagram />
         </a>
-      </p>
-      <div className="copyright">
-        <p>Copyright @ShuddiGramNepal</p>
+
+        <a
+          href="https://www.facebook.com/ShuddhiGramNepal"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Facebook"
+        >
+          <FaFacebook />
+        </a>
       </div>
-      
-      
+      <p>Address:Sanepa-02, Lalitpur 44600</p>
+      <p>Contact No: 9704553254</p>
+
+      <div className="copyright">
+        <p>© ShuddhiGram Nepal</p>
+      </div>
     </footer>
-    
   );
 }
